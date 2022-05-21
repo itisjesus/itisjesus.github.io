@@ -1,51 +1,7 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Laure Angele Birthday Party Registration Form</title>
-	  <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <h1 id="title">Laure Angele Birthday Party Registration Form</h1>
-    <p id="description">Please fill out this form with the required information</p>
-    <form id="survey-form" action='https://register-demo.freecodecamp.org'>
-      <fieldset>
-        <label id="name-label">Name: <input id="name" type="text" placeholder="Enter your name" required /></label>
-        <label id="email-label">Email: <input id="email" type="email" pattern=".+@gmail\.com" placeholder="Enter your gmail address (a fake address would also be accepted)" required /></label>
-        <label id="number-label">Age (optional): <input id="number" type="number" min="10" max="120" placeholder="Enter your age" /></label>
-      </fieldset>
-      <fieldset>
-        <label>Which option best describes your relationship to Laure Angele?
-                          <select id="dropdown">
-                            <option value="1">She is my daughter</option>
-                            <option value="2">She is my sister</option>
-                            <option value="3">She is my wife</option>
-                            <option value="4">She is my mum</option>
-                            <option value="5">She is my aunt</option>
-                            <option value="6">Other</option>
-                          </select>
-        </label>
-      </fieldset>
-      <fieldset> Do you plan on bringing a friend to the birthday party?
-        <label><input class="inline" type="radio" name="bringing-a-friend" value="yes" /> Yes</label>
-        <label><input class="inline" type="radio" name="bringing-a-friend" value="no" /> No</label>
-      </fieldset>
-      <fieldset>What are your expectations for the birthday party?
-        <label><input class="inline" type="checkbox" value="1" /> Music and dancing</label>
-        <label><input class="inline" type="checkbox" value="2" /> Gifts</label>
-        <label><input class="inline" type="checkbox" value="3" /> Lots of food</label>
-        <label><input class="inline" type="checkbox" value="4" /> A really big birthday cake</label>
-      </fieldset>
-      <fieldset>
-        <label>Any comments or suggestions?
-            <textarea rows="3" cols="30" placeholder="Enter your comment here..."></textarea>
-        </label>
-      </fieldset>
-      <input id="submit" type="submit" value="Submit" />
-    </form>
-  </body>
-</html>
 
-body {
+<style>
+	body {
   width: 100%;
   height: 100vh;
   margin: 0;
@@ -112,3 +68,50 @@ input[type="submit"] {
 input[type="file"] {
   padding: 1px 2px;
 }
+</style>
+
+<html>
+  <head>
+    <title>Laure Angele Birthday Party Registration Form</title>
+	  <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Laure Angele Birthday Party Registration Form</h1>
+    <p id="description">Please fill out this form with the required information</p>
+    <form id="survey-form" action='https://register-demo.freecodecamp.org'>
+      <fieldset>
+        <label id="name-label">Name: <input id="name" type="text" placeholder="Enter your name" required /></label>
+        <label id="email-label">Email: <input id="email" type="email" pattern=".+@gmail\.com" placeholder="Enter your gmail address (a fake address would also be accepted)" required /></label>
+        <label id="number-label">Age (optional): <input id="number" type="number" min="10" max="120" placeholder="Enter your age" /></label>
+      </fieldset>
+      <fieldset>
+        <label>Which option best describes your relationship to Laure Angele?
+                          <select id="dropdown">
+                            <option value="1">She is my daughter</option>
+                            <option value="2">She is my sister</option>
+                            <option value="3">She is my wife</option>
+                            <option value="4">She is my mum</option>
+                            <option value="5">She is my aunt</option>
+                            <option value="6">Other</option>
+                          </select>
+        </label>
+      </fieldset>
+      <fieldset> Do you plan on bringing a friend to the birthday party?
+        <label><input class="inline" type="radio" name="bringing-a-friend" value="yes" /> Yes</label>
+        <label><input class="inline" type="radio" name="bringing-a-friend" value="no" /> No</label>
+      </fieldset>
+      <fieldset>What are your expectations for the birthday party?
+        <label><input class="inline" type="checkbox" value="1" /> Music and dancing</label>
+        <label><input class="inline" type="checkbox" value="2" /> Gifts</label>
+        <label><input class="inline" type="checkbox" value="3" /> Lots of food</label>
+        <label><input class="inline" type="checkbox" value="4" /> A really big birthday cake</label>
+      </fieldset>
+      <fieldset>
+        <label>Any comments or suggestions?
+            <textarea rows="3" cols="30" placeholder="Enter your comment here..."></textarea>
+        </label>
+      </fieldset>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

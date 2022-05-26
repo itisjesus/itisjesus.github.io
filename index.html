@@ -1,117 +1,53 @@
 <!DOCTYPE html>
 
 <style>
-	body {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  background-color: #1b1b32;
-	color: #f5f6f7;
-  font-family: Tahoma;
-	font-size: 16px;
+  #image {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-h1, p {
-  margin: 1em auto;
+  .center {
   text-align: center;
 }
 
-form {
-  width: 60vw;
-	max-width: 500px;
-	min-width: 300px;
-	margin: 0 auto;
-  padding-bottom: 2em;
+  body {
+  background-color: #d3d3d3;
 }
 
-fieldset {
-  border: none;
-	padding: 2rem 0;
-}
-
-label {
-  display: block;
-	margin: 0.5rem 0;
-}
-
-input,
-textarea,
-select {
-  margin: 10px 0 0 0;
-	width: 100%;
-  min-height: 2em;
-}
-
-input, textarea {
-  background-color: #0a0a23;
-  border: 1px solid #0a0a23;
-  color: #ffffff;
-}
-
-.inline {
-  width: unset;
-  margin: 0 0.5em 0 0;
-  vertical-align: middle;
-}
-
-input[type="submit"] {
-  display: block;
-  width: 60%;
-  margin: 1em auto;
-  height: 2em;
-  font-size: 1.1rem;
-  background-color: #3b3b4f;
-  border-color: white;
-  min-width: 300px;
-}
-
-input[type="file"] {
-  padding: 1px 2px;
+  figure {
+  background-color: white;
 }
 </style>
 
 <html>
-  <head>
-    <title>Laure Angele Birthday Party Registration Form</title>
-	  <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <h1 id="title">Laure Angele Birthday Party Registration Form</h1>
-    <p id="description">Please fill out this form with the required information</p>
-    <form id="survey-form" action='https://register-demo.freecodecamp.org'>
-      <fieldset>
-        <label id="name-label">Name: <input id="name" type="text" placeholder="Enter your name" required /></label>
-        <label id="email-label">Email: <input id="email" type="email" pattern=".+@gmail\.com" placeholder="Enter your gmail address (a fake address would also be accepted)" required /></label>
-        <label id="number-label">Age (optional): <input id="number" type="number" min="10" max="120" placeholder="Enter your age" /></label>
-      </fieldset>
-      <fieldset>
-        <label>Which option best describes your relationship to Laure Angele?
-                          <select id="dropdown">
-                            <option value="1">She is my daughter</option>
-                            <option value="2">She is my sister</option>
-                            <option value="3">She is my wife</option>
-                            <option value="4">She is my mum</option>
-                            <option value="5">She is my aunt</option>
-                            <option value="6">Other</option>
-                          </select>
-        </label>
-      </fieldset>
-      <fieldset> Do you plan on bringing a friend to the birthday party?
-        <label><input class="inline" type="radio" name="bringing-a-friend" value="yes" /> Yes</label>
-        <label><input class="inline" type="radio" name="bringing-a-friend" value="no" /> No</label>
-      </fieldset>
-      <fieldset>What are your expectations for the birthday party?
-        <label><input class="inline" type="checkbox" value="1" /> Music and dancing</label>
-        <label><input class="inline" type="checkbox" value="2" /> Gifts</label>
-        <label><input class="inline" type="checkbox" value="3" /> Lots of food</label>
-        <label><input class="inline" type="checkbox" value="4" /> A really big birthday cake</label>
-      </fieldset>
-      <fieldset>
-        <label>Any comments or suggestions?
-            <textarea rows="3" cols="30" placeholder="Enter your comment here..."></textarea>
-        </label>
-      </fieldset>
-      <input id="submit" type="submit" value="Submit" />
-    </form>
-  </body>
+  <link rel="stylesheet" href="styles.css">
+  <main id="main">
+    <h1 id="title" class="center">Dr. Michel Kenmogne</h1>
+    <p id="subtitle" class="center">Executive Director of SIL International</p>
+    <figure id="img-div">
+      <img id="image" src="data:image/jpeg;base64,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"/>
+      <figcaption id="img-caption">A picture of Dr. Michel Kenmogne</figcaption>
+    </figure>
+    <div id="tribute-info">
+      <h3 class="center">Here are Dr. Kenmogne's important achievements so far:</h3>
+      <ul>
+        <li><b>1965</b> - Born in Baham, Cameroon</li>
+        <li><b>1987</b> - Earns his bachelor's degree in French Studies at University of Yaoundé, Cameroon </li>
+        <li><b>1989</b> - Earns his master's degree in African Linguistics at University of Yaoundé, Cameroon </li>
+        <li><b>1993</b> - Marries Laure Angele </li>
+        <li><b>1994</b> - Birth of his first daughter, Prisca</li>
+        <li><b>1997</b> - Birth of his second daughter, Blessing</li>
+        <li><b>1999</b> - Birth of his third daughter, Glory</li>
+        <li><b>2001</b> - Earns his Ph.D. in African Linguistics at University of Buea, Cameroon </li>
+        <li><b>From 2000 to 2005</b> - Served as CABTAL's Director of Language Programs</li>
+        <li><b>2002</b> - Birth of his fourth child, Gaddiel</li>
+        <li><b>2004</b> - Birth of his fifth child (fourth daughter), Abiele</li>
+        <li><b>From 2004 to 2011</b> - Served as General Director of CABTAL (Cameroon Association for Bible Translation and Literacy)</li>
+        <li><b>From 2012 to 2015</b> - Served as Associate Director of Wycliffe Global Alliance for Francophone Africa</li>
+        <li><b>From 2016 until now</b> - Serves as Executive Director of SIL International</li>
+      </ul>
+    </div>
+    <h3 class="center">Here's a <a id="tribute-link" href="https://www.sil.org/biography/michel-kenmogne-phd" target="_blank"> link</a> to the website I took most of my information from.</h3>
+  </main>
 </html>

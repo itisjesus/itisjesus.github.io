@@ -1,53 +1,541 @@
 <!DOCTYPE html>
 
 <style>
-  #image {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+  html, body {
+    min-width: 290px;
+    color: #4d4e53;
+    background-color: #ffffff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.5;
+  }
 
-  .center {
-  text-align: center;
-}
+  html {
+    display: block;
+  }
+
+  head {
+    display: none;
+  }
 
   body {
-  background-color: #d3d3d3;
-}
+    display: block;
+    margin: 8px;
+  }
 
-  figure {
-  background-color: white;
-}
+  @media only screen and (max-width: 815px)
+  #navbar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+  nav {
+    display: block;
+  }
+
+  @media only screen and (max-width: 815px)
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+  main {
+    display: block;
+  }
+
+  section {
+    display: block;
+  }
+
+  #main-doc header {
+    text-align: left;
+    margin: 0px;
+  }
+
+  header {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: thin;
+  }
+
+  header {
+    display: block;
+  }
+
+  section article {
+    color: #4d4e53;
+    margin: 15px;
+    font-size: 0.96em;
+  }
+
+  article {
+    display: block;
+  }
 </style>
 
 <html>
-  <link rel="stylesheet" href="styles.css">
-  <main id="main">
-    <h1 id="title" class="center">Dr. Michel Kenmogne</h1>
-    <p id="subtitle" class="center">Executive Director of SIL International</p>
-    <figure id="img-div">
-      <img id="image" src="data:image/jpeg;base64,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"/>
-      <figcaption id="img-caption">A picture of Dr. Michel Kenmogne</figcaption>
-    </figure>
-    <div id="tribute-info">
-      <h3 class="center">Here are Dr. Kenmogne's important achievements so far:</h3>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>JS Documentation</header>
       <ul>
-        <li><b>1965</b> - Born in Baham, Cameroon</li>
-        <li><b>1987</b> - Earns his bachelor's degree in French Studies at University of Yaoundé, Cameroon </li>
-        <li><b>1989</b> - Earns his master's degree in African Linguistics at University of Yaoundé, Cameroon </li>
-        <li><b>1993</b> - Marries Laure Angele </li>
-        <li><b>1994</b> - Birth of his first daughter, Prisca</li>
-        <li><b>1997</b> - Birth of his second daughter, Blessing</li>
-        <li><b>1999</b> - Birth of his third daughter, Glory</li>
-        <li><b>2001</b> - Earns his Ph.D. in African Linguistics at University of Buea, Cameroon </li>
-        <li><b>From 2000 to 2005</b> - Served as CABTAL's Director of Language Programs</li>
-        <li><b>2002</b> - Birth of his fourth child, Gaddiel</li>
-        <li><b>2004</b> - Birth of his fifth child (fourth daughter), Abiele</li>
-        <li><b>From 2004 to 2011</b> - Served as General Director of CABTAL (Cameroon Association for Bible Translation and Literacy)</li>
-        <li><b>From 2012 to 2015</b> - Served as Associate Director of Wycliffe Global Alliance for Francophone Africa</li>
-        <li><b>From 2016 until now</b> - Serves as Executive Director of SIL International</li>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li>
+          <a class="nav-link" href="#What_you_should_already_know"
+            >What you should already know</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#JavaScript_and_Java"
+            >JavaScript and Java</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Hello_world">Hello world</a></li>
+        <li><a class="nav-link" href="#Variables">Variables</a></li>
+        <li>
+          <a class="nav-link" href="#Declaring_variables"
+            >Declaring variables</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Variable_scope">Variable scope</a></li>
+        <li>
+          <a class="nav-link" href="#Global_variables">Global variables</a>
+        </li>
+        <li><a class="nav-link" href="#Constants">Constants</a></li>
+        <li><a class="nav-link" href="#Data_types">Data types</a></li>
+        <li>
+          <a class="nav-link" href="#if...else_statement"
+            >if...else statement</a
+          >
+        </li>
+        <li><a class="nav-link" href="#while_statement">while statement</a></li>
+        <li>
+          <a class="nav-link" href="#Function_declarations"
+            >Function declarations</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
       </ul>
-    </div>
-    <h3 class="center">Here's a <a id="tribute-link" href="https://www.sil.org/biography/michel-kenmogne-phd" target="_blank"> link</a> to the website I took most of my information from.</h3>
-  </main>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <article>
+          <p>
+            JavaScript is a cross-platform, object-oriented scripting language.
+            It is a small and lightweight language. Inside a host environment
+            (for example, a web browser), JavaScript can be connected to the
+            objects of its environment to provide programmatic control over
+            them.
+          </p>
+
+          <p>
+            JavaScript contains a standard library of objects, such as Array,
+            Date, and Math, and a core set of language elements such as
+            operators, control structures, and statements. Core JavaScript can
+            be extended for a variety of purposes by supplementing it with
+            additional objects; for example:
+          </p>
+          <ul>
+            <li>
+              Client-side JavaScript extends the core language by supplying
+              objects to control a browser and its Document Object Model (DOM).
+              For example, client-side extensions allow an application to place
+              elements on an HTML form and respond to user events such as mouse
+              clicks, form input, and page navigation.
+            </li>
+            <li>
+              Server-side JavaScript extends the core language by supplying
+              objects relevant to running JavaScript on a server. For example,
+              server-side extensions allow an application to communicate with a
+              database, provide continuity of information from one invocation to
+              another of the application, or perform file manipulations on a
+              server.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="What_you_should_already_know">
+        <header>What you should already know</header>
+        <article>
+          <p>This guide assumes you have the following basic background:</p>
+
+          <ul>
+            <li>
+              A general understanding of the Internet and the World Wide Web
+              (WWW).
+            </li>
+            <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+            <li>
+              Some programming experience. If you are new to programming, try
+              one of the tutorials linked on the main page about JavaScript.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="JavaScript_and_Java">
+        <header>JavaScript and Java</header>
+        <article>
+          <p>
+            JavaScript and Java are similar in some ways but fundamentally
+            different in some others. The JavaScript language resembles Java but
+            does not have Java's static typing and strong type checking.
+            JavaScript follows most Java expression syntax, naming conventions
+            and basic control-flow constructs which was the reason why it was
+            renamed from LiveScript to JavaScript.
+          </p>
+
+          <p>
+            In contrast to Java's compile-time system of classes built by
+            declarations, JavaScript supports a runtime system based on a small
+            number of data types representing numeric, Boolean, and string
+            values. JavaScript has a prototype-based object model instead of the
+            more common class-based object model. The prototype-based model
+            provides dynamic inheritance; that is, what is inherited can vary
+            for individual objects. JavaScript also supports functions without
+            any special declarative requirements. Functions can be properties of
+            objects, executing as loosely typed methods.
+          </p>
+          <p>
+            JavaScript is a very free-form language compared to Java. You do not
+            have to declare all variables, classes, and methods. You do not have
+            to be concerned with whether methods are public, private, or
+            protected, and you do not have to implement interfaces. Variables,
+            parameters, and function return types are not explicitly typed.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Hello_world">
+        <header>Hello world</header>
+        <article>
+          To get started with writing JavaScript, open the Scratchpad and write
+          your first "Hello world" JavaScript code:
+          <code
+            >function greetMe(yourName) { alert("Hello " + yourName); }
+            greetMe("World");
+          </code>
+
+          Select the code in the pad and hit Ctrl+R to watch it unfold in your
+          browser!
+        </article>
+      </section>
+      <section class="main-section" id="Variables">
+        <header>Variables</header>
+        <p>
+          You use variables as symbolic names for values in your application.
+          The names of variables, called identifiers, conform to certain rules.
+        </p>
+        <p>
+          A JavaScript identifier must start with a letter, underscore (_), or
+          dollar sign ($); subsequent characters can also be digits (0-9).
+          Because JavaScript is case sensitive, letters include the characters
+          "A" through "Z" (uppercase) and the characters "a" through "z"
+          (lowercase).
+        </p>
+        <p>
+          You can use ISO 8859-1 or Unicode letters such as å and ü in
+          identifiers. You can also use the Unicode escape sequences as
+          characters in identifiers. Some examples of legal names are
+          Number_hits, temp99, and _name.
+        </p>
+      </section>
+      <section class="main-section" id="Declaring_variables">
+        <header>Declaring variables</header>
+        <article>
+          You can declare a variable in three ways:
+          <p>
+            With the keyword var. For example, <code>var x = 42.</code> This
+            syntax can be used to declare both local and global variables.
+          </p>
+          <p>
+            By simply assigning it a value. For example,
+            <code>x = 42.</code> This always declares a global variable. It
+            generates a strict JavaScript warning. You shouldn't use this
+            variant.
+          </p>
+          <p>
+            With the keyword let. For example,<code> let y = 13.</code> This
+            syntax can be used to declare a block scope local variable. See
+            Variable scope below.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Variable_scope">
+        <header>Variable scope</header>
+        <article>
+          <p>
+            When you declare a variable outside of any function, it is called a
+            global variable, because it is available to any other code in the
+            current document. When you declare a variable within a function, it
+            is called a local variable, because it is available only within that
+            function.
+          </p>
+
+          <p>
+            JavaScript before ECMAScript 2015 does not have block statement
+            scope; rather, a variable declared within a block is local to the
+            function (or global scope) that the block resides within. For
+            example the following code will log 5, because the scope of x is the
+            function (or global context) within which x is declared, not the
+            block, which in this case is an if statement.
+          </p>
+          <code>if (true) { var x = 5; } console.log(x); // 5</code>
+          <p>
+            This behavior changes, when using the let declaration introduced in
+            ECMAScript 2015.
+          </p>
+
+          <code
+            >if (true) { let y = 5; } console.log(y); // ReferenceError: y is
+            not defined</code
+          >
+        </article>
+      </section>
+      <section class="main-section" id="Global_variables">
+        <header>Global variables</header>
+        <article>
+          <p>
+            Global variables are in fact properties of the global object. In web
+            pages the global object is window, so you can set and access global
+            variables using the window.variable syntax.
+          </p>
+
+          <p>
+            Consequently, you can access global variables declared in one window
+            or frame from another window or frame by specifying the window or
+            frame name. For example, if a variable called phoneNumber is
+            declared in a document, you can refer to this variable from an
+            iframe as parent.phoneNumber.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Constants">
+        <header>Constants</header>
+        <article>
+          <p>
+            You can create a read-only, named constant with the const keyword.
+            The syntax of a constant identifier is the same as for a variable
+            identifier: it must start with a letter, underscore or dollar sign
+            and can contain alphabetic, numeric, or underscore characters.
+          </p>
+
+          <code>const PI = 3.14;</code>
+          <p>
+            A constant cannot change value through assignment or be re-declared
+            while the script is running. It has to be initialized to a value.
+          </p>
+
+          <p>
+            The scope rules for constants are the same as those for let block
+            scope variables. If the const keyword is omitted, the identifier is
+            assumed to represent a variable.
+          </p>
+
+          <p>
+            You cannot declare a constant with the same name as a function or
+            variable in the same scope. For example:
+          </p>
+
+          <code
+            >// THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS
+            WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g;
+            //statements }</code
+          >
+          However, object attributes are not protected, so the following
+          statement is executed without problems.
+          <code
+            >const MY_OBJECT = {"key": "value"}; MY_OBJECT.key =
+            "otherValue";</code
+          >
+        </article>
+      </section>
+      <section class="main-section" id="Data_types">
+        <header>Data types</header>
+        <article>
+          <p>The latest ECMAScript standard defines seven data types:</p>
+          <ul>
+            <li>
+              <p>Six data types that are primitives:</p>
+              <ul>
+                <li>Boolean. true and false.</li>
+                <li>
+                  null. A special keyword denoting a null value. Because
+                  JavaScript is case-sensitive, null is not the same as Null,
+                  NULL, or any other variant.
+                </li>
+                <li>
+                  undefined. A top-level property whose value is undefined.
+                </li>
+                <li>Number. 42 or 3.14159.</li>
+                <li>String. "Howdy"</li>
+                <li>
+                  Symbol (new in ECMAScript 2015). A data type whose instances
+                  are unique and immutable.
+                </li>
+              </ul>
+            </li>
+
+            <li>and Object</li>
+          </ul>
+          Although these data types are a relatively small amount, they enable
+          you to perform useful functions with your applications. Objects and
+          functions are the other fundamental elements in the language. You can
+          think of objects as named containers for values, and functions as
+          procedures that your application can perform.
+        </article>
+      </section>
+      <section class="main-section" id="if...else_statement">
+        <header>if...else statement</header>
+        <article>
+          Use the if statement to execute a statement if a logical condition is
+          true. Use the optional else clause to execute a statement if the
+          condition is false. An if statement looks as follows:
+
+          <code>if (condition) { statement_1; } else { statement_2; }</code>
+          condition can be any expression that evaluates to true or false. See
+          Boolean for an explanation of what evaluates to true and false. If
+          condition evaluates to true, statement_1 is executed; otherwise,
+          statement_2 is executed. statement_1 and statement_2 can be any
+          statement, including further nested if statements.
+          <p>
+            You may also compound the statements using else if to have multiple
+            conditions tested in sequence, as follows:
+          </p>
+          <code
+            >if (condition_1) { statement_1; } else if (condition_2) {
+            statement_2; } else if (condition_n) { statement_n; } else {
+            statement_last; }
+          </code>
+          In the case of multiple conditions only the first logical condition
+          which evaluates to true will be executed. To execute multiple
+          statements, group them within a block statement ({ ... }) . In
+          general, it's good practice to always use block statements, especially
+          when nesting if statements:
+
+          <code
+            >if (condition) { statement_1_runs_if_condition_is_true;
+            statement_2_runs_if_condition_is_true; } else {
+            statement_3_runs_if_condition_is_false;
+            statement_4_runs_if_condition_is_false; }</code
+          >
+          It is advisable to not use simple assignments in a conditional
+          expression, because the assignment can be confused with equality when
+          glancing over the code. For example, do not use the following code:
+          <code>if (x = y) { /* statements here */ }</code> If you need to use
+          an assignment in a conditional expression, a common practice is to put
+          additional parentheses around the assignment. For example:
+
+          <code>if ((x = y)) { /* statements here */ }</code>
+        </article>
+      </section>
+      <section class="main-section" id="while_statement">
+        <header>while statement</header>
+        <article>
+          A while statement executes its statements as long as a specified
+          condition evaluates to true. A while statement looks as follows:
+
+          <code>while (condition) statement</code> If the condition becomes
+          false, statement within the loop stops executing and control passes to
+          the statement following the loop.
+
+          <p>
+            The condition test occurs before statement in the loop is executed.
+            If the condition returns true, statement is executed and the
+            condition is tested again. If the condition returns false, execution
+            stops and control is passed to the statement following while.
+          </p>
+
+          <p>
+            To execute multiple statements, use a block statement ({ ... }) to
+            group those statements.
+          </p>
+
+          Example:
+
+          <p>
+            The following while loop iterates as long as n is less than three:
+          </p>
+
+          <code>var n = 0; var x = 0; while (n &lt; 3) { n++; x += n; }</code>
+          <p>
+            With each iteration, the loop increments n and adds that value to x.
+            Therefore, x and n take on the following values:
+          </p>
+
+          <ul>
+            <li>After the first pass: n = 1 and x = 1</li>
+            <li>After the second pass: n = 2 and x = 3</li>
+            <li>After the third pass: n = 3 and x = 6</li>
+          </ul>
+          <p>
+            After completing the third pass, the condition n &lt; 3 is no longer
+            true, so the loop terminates.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Function_declarations">
+        <header>Function declarations</header>
+        <article>
+          A function definition (also called a function declaration, or function
+          statement) consists of the function keyword, followed by:
+
+          <ul>
+            <li>The name of the function.</li>
+            <li>
+              A list of arguments to the function, enclosed in parentheses and
+              separated by commas.
+            </li>
+            <li>
+              The JavaScript statements that define the function, enclosed in
+              curly brackets, { }.
+            </li>
+          </ul>
+          <p>
+            For example, the following code defines a simple function named
+            square:
+          </p>
+
+          <code>function square(number) { return number * number; }</code>
+          <p>
+            The function square takes one argument, called number. The function
+            consists of one statement that says to return the argument of the
+            function (that is, number) multiplied by itself. The return
+            statement specifies the value returned by the function.
+          </p>
+          <code>return number * number;</code>
+          <p>
+            Primitive parameters (such as a number) are passed to functions by
+            value; the value is passed to the function, but if the function
+            changes the value of the parameter, this change is not reflected
+            globally or in the calling function.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <article>
+          <ul>
+            <li>
+              All the documentation in this page is taken from
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+                target="_blank"
+                >MDN</a
+              >
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
